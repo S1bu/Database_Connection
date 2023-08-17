@@ -2,10 +2,13 @@ const Users = require('./Users')
 const Orders = require('./Orders')
 const Books = require('./Books')
 const bookAuthors = require('./BookAuthors')
-//cImport all models objects
-routes.get()
+//Import all models objects
+// routes.get()
 
 // Export all objects
 module.exports = {
-    Users: new Users()
+    users: new Users(),
+    orders: new Orders(),
+    books: new Books(),
+    authors: new bookAuthors()
 }
