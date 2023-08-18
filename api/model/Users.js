@@ -62,12 +62,7 @@ class Users{
                             emailAdd,
                             userPass
                         })
-                        // Save a token
-                        res.cookie("LegitUser",
-                        token, {
-                            maxAge: 3600000,
-                            httpOnly: true
-                        })
+                    
                         if(cResult) {
                             res.json({
                                 msg: "Logged in",
@@ -104,13 +99,7 @@ class Users{
         // if you dont wanna use set ypu can use 'values(?,?,?,?,?,?,?,?)'
         db.query(query,[data],(err) => {
             if(err) throw err
-            // create a Token
             let token = createToken(user)
-            res.cookie("LegitUser", token, 
-            {
-                maxAge: 3600000,
-                httpOnly: true
-            });
             res.json ({
                 status: res.statusCode,
                 msg: "You are now registered"
